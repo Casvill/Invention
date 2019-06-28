@@ -111,15 +111,36 @@ public class ViewLogin extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jbCloseMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jbCloseMouseEntered
-        jbClose.setIcon(new ImageIcon(getClass().getResource("/icons/closeEntered.png")));
+        try
+        {
+            jbClose.setIcon(new ImageIcon(getClass().getResource("/images/closeEntered.png")));
+        }
+        catch(NullPointerException exception)
+        {
+            System.out.println("ViewLogin: jbCloseMouseEntered: NullPointerException: "+exception.getMessage());
+        }
     }//GEN-LAST:event_jbCloseMouseEntered
 
     private void jbCloseMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jbCloseMouseReleased
-        jbClose.setIcon(new ImageIcon(getClass().getResource("/icons/close.png")));
+        try
+        {
+            jbClose.setIcon(new ImageIcon(getClass().getResource("/images/close.png")));
+        }
+        catch(NullPointerException exception)
+        {
+            System.out.println("ViewLogin: jbCloseMouseReleased: NullPointerException: "+exception.getMessage());
+        }
     }//GEN-LAST:event_jbCloseMouseReleased
 
     private void jbCloseMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jbCloseMouseExited
-        jbClose.setIcon(new ImageIcon(getClass().getResource("/icons/close.png")));
+        try
+        {
+            jbClose.setIcon(new ImageIcon(getClass().getResource("/images/close.png")));
+        }
+        catch(NullPointerException exception)
+        {
+            System.out.println("ViewLogin: jbCloseMouseExited: NullPointerException: "+exception.getMessage());
+        }
     }//GEN-LAST:event_jbCloseMouseExited
 
     private void jtUsernameFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jtUsernameFocusGained
