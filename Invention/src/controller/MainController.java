@@ -1,6 +1,5 @@
 //Para navegar rápido:------------
 //ActionListeners
-//Falta
 //Button Action
 //--------------------------------
 
@@ -9,6 +8,7 @@ package controller;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import view.ViewLogin;
+import view.ViewDashboard;
 
 /**
  *
@@ -19,6 +19,7 @@ public class MainController implements ActionListener
 {
     
     private ViewLogin login;
+    private ViewDashboard dashboard;
     
     public MainController()
     {
@@ -43,7 +44,9 @@ public class MainController implements ActionListener
         
         if(e.getSource() == login.jbGo)
         {
-            //Falta
+            dashboard = new ViewDashboard();
+            login.setVisible(false);
+            dashboard.setVisible(true);
         }
     }
     //End Button Action.--------------------------------------------------------
