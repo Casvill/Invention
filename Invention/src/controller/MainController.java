@@ -24,11 +24,13 @@ public class MainController implements ActionListener
     public MainController()
     {
         login = new ViewLogin();
+        dashboard = new ViewDashboard();
         login.setVisible(true);
         
         //ActionListeners:------------------------------------------------------
         login.jbClose.addActionListener(this);
         login.jbGo.addActionListener(this);
+        dashboard.jbClose.addActionListener(this);
         //End ActionListeners.--------------------------------------------------
     }
     
@@ -42,9 +44,14 @@ public class MainController implements ActionListener
             System.exit(0);
         }
         
+        if(e.getSource() == dashboard.jbClose)
+        {
+            dashboard.setVisible(false);
+            login.setVisible(true);
+        }
+        
         if(e.getSource() == login.jbGo)
         {
-            dashboard = new ViewDashboard();
             login.setVisible(false);
             dashboard.setVisible(true);
         }
