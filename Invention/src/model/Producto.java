@@ -4,7 +4,7 @@ package model;
  *
  * @author jepabon
  */
-public class ModelProduct extends Base {
+public class Producto extends Base {
     
     private String codigo;
     private String descripcion;
@@ -15,7 +15,7 @@ public class ModelProduct extends Base {
     private double valorNeto;
     private double costo;
     
-    public ModelProduct(int id) {
+    public Producto(int id) {
         super(id);
     }
     
