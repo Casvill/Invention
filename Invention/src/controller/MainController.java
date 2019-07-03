@@ -25,11 +25,13 @@ public class MainController implements ActionListener
     {
         login = new ViewLogin();
         dashboard = new ViewDashboard();
+        dashboard.setVisible(false);
         login.setVisible(true);
         
         //ActionListeners:------------------------------------------------------
         login.jbClose.addActionListener(this);
         login.jbGo.addActionListener(this);
+        
         dashboard.jbClose.addActionListener(this);
         //End ActionListeners.--------------------------------------------------
     }

@@ -44,14 +44,14 @@ public class ViewLogin extends javax.swing.JFrame {
         jbClose.setBorder(null);
         jbClose.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jbClose.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                jbCloseMouseEntered(evt);
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                jbCloseMouseReleased(evt);
             }
             public void mouseExited(java.awt.event.MouseEvent evt) {
                 jbCloseMouseExited(evt);
             }
-            public void mouseReleased(java.awt.event.MouseEvent evt) {
-                jbCloseMouseReleased(evt);
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jbCloseMouseEntered(evt);
             }
         });
         getContentPane().add(jbClose, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 10, -1, -1));
