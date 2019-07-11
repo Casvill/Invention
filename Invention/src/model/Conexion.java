@@ -1,7 +1,6 @@
-package modelo;
+package model;
 
 import java.sql.*;
-import javax.swing.JOptionPane;
 
 //jdbc:postgresql://localhost:5432/Invention
 
@@ -22,24 +21,25 @@ public class Conexion {
     //Deberá proveerse la url de donde se encuentra alojada la base de datos, el usuario y la contraseña.
     public Conexion(String url, String user, String pass)
     { 
+        
         this.url=url;
         this.user=user;
         this.pass=pass;
         
         try
         {
-            Class.forName("org.postgresql.Driver");
+            Class.forName("org.postgresql.Driver");//
+            System.out.println("Conexion satisfactoria.");
         }catch(ClassNotFoundException error)
         {
-            JOptionPane.showMessageDialog(null, "Error al tratar de conectar con la base de datos:\n"+error.getMessage());
+            System.out.println("[Conexion][Conexion(String,String,String)]:"+error.getMessage());
         }
     }
     //Fin constructor con parámetros-------------------------------------------------------------------------
     
     /******************************************************************************************************/
     
-    //Método para enviar una query que no retorna nada al servidor:--------------------------------------
-    //retorna true si pudo ejecutar la query / false si ocurre algún error
+    //Método para enviar una query que no retorna nada del servidor:--------------------------------------
     public boolean ejecutarQuery(String query)
     {
         try 
@@ -49,7 +49,7 @@ public class Conexion {
             return true;
         }catch (SQLException | NullPointerException error) 
         {
-            JOptionPane.showMessageDialog(null, "Error al tratar de ejecutar la query:\n"+error.getMessage());
+            System.out.println("[Conexion][ejecutarQuery(String)]:"+error.getMessage());
             return false;
         }
     }
@@ -57,10 +57,9 @@ public class Conexion {
     
     /******************************************************************************************************/
     
-    //Método para enviar una query que retorna algo:-----------------------------------------------------
+    //Método para enviar una query que retorna algo del servidor:-----------------------------------------------------
     public ResultSet ejecutarQueryResult(String query)
     { 
-        int i=0;
         try 
         {
             st= conexion.createStatement();
@@ -68,7 +67,7 @@ public class Conexion {
       
         }catch (SQLException | NullPointerException error) 
         {
-            JOptionPane.showMessageDialog(null, "Error al tratar de ejecutar la query:\n"+error.getMessage());
+            System.out.println("[Conexion][ejecutarQueryResult(String)]:"+error.getMessage());
         }
         
         return result;
@@ -82,9 +81,10 @@ public class Conexion {
         try 
         {
             conexion = DriverManager.getConnection(url,user,pass);
+            //System.out.println("Conexion abierta.");
         } catch (SQLException error) 
         {
-            JOptionPane.showMessageDialog(null, "Error al tratar de establecer la conexión:\n"+error.getMessage());
+            System.out.println("[Conexion][abrirConexion()]:"+error.getMessage());
         }
     }
     //Fin abrirConexion()-------------------------------------------------------------------------------------
@@ -98,9 +98,10 @@ public class Conexion {
             conexion.close();
             st.close();
             result.close();
+            //System.out.println("Conexion cerrada.");
         }catch(SQLException | NullPointerException error)
         {
-            JOptionPane.showMessageDialog(null, "Error al tratar de cerrar la conexión:\n"+error.getMessage());
+            System.out.println("[Conexion][cerrarConexion()]:"+error.getMessage());
         }
     }
     //Fin cerrarConexion()---------------------------------------------------------------------------------------

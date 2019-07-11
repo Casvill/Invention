@@ -5,7 +5,11 @@
  */
 package view;
 
+import java.awt.Color;
+import java.awt.Dimension;
+import java.awt.Font;
 import javax.swing.ImageIcon;
+import javax.swing.border.EmptyBorder;
 
 /**
  *
@@ -13,12 +17,23 @@ import javax.swing.ImageIcon;
  */
 public class ViewDashboard extends javax.swing.JFrame {
 
-    int x,y;
+    //int x,y;
     
     public ViewDashboard() {
         initComponents();
         this.setLocationRelativeTo(null);
-        //this.setExtendedState(MAXIMIZED_BOTH);
+        this.setExtendedState(MAXIMIZED_BOTH);
+        
+        jpBotonCrear.setVisible(false);
+        jtInsumos.setVisible(false);
+        jspInsumos.setVisible(false);
+        jpSearch.setVisible(false);
+        
+        jtInsumos.getTableHeader().setFont(new Font("Tw cen MT", Font.PLAIN, 18));
+        jtInsumos.getTableHeader().setOpaque(false);
+        jtInsumos.getTableHeader().setBackground(new Color(0, 200, 248));
+        jtInsumos.getTableHeader().setPreferredSize(new Dimension(10,40));
+        jtInsumos.setRowHeight(25);
     }
 
     /**
@@ -33,7 +48,7 @@ public class ViewDashboard extends javax.swing.JFrame {
         jpFondo = new javax.swing.JPanel();
         jpBanner = new javax.swing.JPanel();
         jbClose = new javax.swing.JButton();
-        jPanel1 = new javax.swing.JPanel();
+        jpTextoBanner = new javax.swing.JPanel();
         jlBanner = new javax.swing.JLabel();
         jpMenu = new javax.swing.JPanel();
         jpEncabezado = new javax.swing.JPanel();
@@ -56,7 +71,14 @@ public class ViewDashboard extends javax.swing.JFrame {
         jpGFacturas = new javax.swing.JPanel();
         jlGFacturas = new javax.swing.JLabel();
         iconFacturas = new javax.swing.JLabel();
-        jPanel2 = new javax.swing.JPanel();
+        jpInsumos = new javax.swing.JPanel();
+        jpSearch = new javax.swing.JPanel();
+        jlIconSearch = new javax.swing.JLabel();
+        jtfSearch = new javax.swing.JTextField();
+        jspInsumos = new javax.swing.JScrollPane();
+        jtInsumos = new javax.swing.JTable();
+        jpBotonCrear = new javax.swing.JPanel();
+        jbAñadirInsumo = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(255, 255, 255));
@@ -89,25 +111,25 @@ public class ViewDashboard extends javax.swing.JFrame {
             }
         });
 
-        jPanel1.setBackground(new java.awt.Color(145, 228, 251));
+        jpTextoBanner.setBackground(new java.awt.Color(145, 228, 251));
 
-        jlBanner.setFont(new java.awt.Font("Arima Madurai", 0, 27)); // NOI18N
+        jlBanner.setFont(new java.awt.Font("Arima Madurai", 0, 35)); // NOI18N
         jlBanner.setForeground(new java.awt.Color(102, 102, 102));
         jlBanner.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jlBanner.setText("AGUA Y HARINA");
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+        javax.swing.GroupLayout jpTextoBannerLayout = new javax.swing.GroupLayout(jpTextoBanner);
+        jpTextoBanner.setLayout(jpTextoBannerLayout);
+        jpTextoBannerLayout.setHorizontalGroup(
+            jpTextoBannerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jpTextoBannerLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jlBanner, javax.swing.GroupLayout.DEFAULT_SIZE, 501, Short.MAX_VALUE)
                 .addContainerGap())
         );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
+        jpTextoBannerLayout.setVerticalGroup(
+            jpTextoBannerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jpTextoBannerLayout.createSequentialGroup()
                 .addGap(21, 21, 21)
                 .addComponent(jlBanner, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(26, Short.MAX_VALUE))
@@ -118,9 +140,9 @@ public class ViewDashboard extends javax.swing.JFrame {
         jpBannerLayout.setHorizontalGroup(
             jpBannerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jpBannerLayout.createSequentialGroup()
-                .addContainerGap(119, Short.MAX_VALUE)
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(116, 116, 116)
+                .addContainerGap(291, Short.MAX_VALUE)
+                .addComponent(jpTextoBanner, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(212, 212, 212)
                 .addComponent(jbClose, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
@@ -130,7 +152,7 @@ public class ViewDashboard extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(jbClose, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jpTextoBanner, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         jpMenu.setBackground(new java.awt.Color(153, 255, 255));
@@ -417,20 +439,68 @@ public class ViewDashboard extends javax.swing.JFrame {
                 .addComponent(jpGReportes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jpGFacturas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+                .addGap(0, 113, Short.MAX_VALUE))
         );
 
-        jPanel2.setBackground(new java.awt.Color(255, 255, 255));
+        jpInsumos.setBackground(new java.awt.Color(255, 255, 255));
 
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
+        jpSearch.setBackground(new java.awt.Color(255, 255, 255));
+        jpSearch.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jlIconSearch.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/search.png"))); // NOI18N
+        jlIconSearch.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
+        jpSearch.add(jlIconSearch, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 10, -1, 30));
+
+        jtfSearch.setBorder(null);
+        jtfSearch.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
+        jpSearch.add(jtfSearch, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 16, 160, -1));
+
+        jtInsumos.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "Id", "Descripción", "Cantidad en Gramos", "Costo al Gramo", "Stock Mínimo", "Estado"
+            }
+        ));
+        jtInsumos.setFocusable(false);
+        jtInsumos.setGridColor(new java.awt.Color(204, 204, 204));
+        jtInsumos.setIntercellSpacing(new java.awt.Dimension(0, 0));
+        jtInsumos.setRowHeight(25);
+        jtInsumos.setSelectionBackground(new java.awt.Color(153, 255, 255));
+        jtInsumos.setShowVerticalLines(false);
+        jtInsumos.getTableHeader().setReorderingAllowed(false);
+        jspInsumos.setViewportView(jtInsumos);
+
+        jpBotonCrear.setBackground(new java.awt.Color(255, 255, 255));
+        jpBotonCrear.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jbAñadirInsumo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/botonAñadir.png"))); // NOI18N
+        jbAñadirInsumo.setBorder(null);
+        jbAñadirInsumo.setBorderPainted(false);
+        jbAñadirInsumo.setContentAreaFilled(false);
+        jbAñadirInsumo.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jbAñadirInsumo.setFocusPainted(false);
+        jpBotonCrear.add(jbAñadirInsumo, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 0, 180, -1));
+
+        javax.swing.GroupLayout jpInsumosLayout = new javax.swing.GroupLayout(jpInsumos);
+        jpInsumos.setLayout(jpInsumosLayout);
+        jpInsumosLayout.setHorizontalGroup(
+            jpInsumosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jpInsumosLayout.createSequentialGroup()
+                .addComponent(jpSearch, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jpBotonCrear, javax.swing.GroupLayout.PREFERRED_SIZE, 205, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addComponent(jspInsumos)
         );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 490, Short.MAX_VALUE)
+        jpInsumosLayout.setVerticalGroup(
+            jpInsumosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jpInsumosLayout.createSequentialGroup()
+                .addGroup(jpInsumosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jpSearch, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jpBotonCrear, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jspInsumos, javax.swing.GroupLayout.DEFAULT_SIZE, 392, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout jpFondoLayout = new javax.swing.GroupLayout(jpFondo);
@@ -441,17 +511,19 @@ public class ViewDashboard extends javax.swing.JFrame {
                 .addComponent(jpMenu, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jpFondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jpBanner, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                    .addGroup(jpFondoLayout.createSequentialGroup()
+                        .addComponent(jpInsumos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addContainerGap())
+                    .addComponent(jpBanner, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
         );
         jpFondoLayout.setVerticalGroup(
             jpFondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
             .addComponent(jpMenu, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(jpFondoLayout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
                 .addComponent(jpBanner, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(jpInsumos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -469,12 +541,12 @@ public class ViewDashboard extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jpFondoMouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jpFondoMouseDragged
-        this.setLocation(this.getLocation().x + evt.getX() - x, this.getLocation().y + evt.getY() - y);
+        //this.setLocation(this.getLocation().x + evt.getX() - x, this.getLocation().y + evt.getY() - y);
     }//GEN-LAST:event_jpFondoMouseDragged
 
     private void jpFondoMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jpFondoMousePressed
-        x=evt.getX();
-        y=evt.getY();
+       // x=evt.getX();
+       // y=evt.getY();
     }//GEN-LAST:event_jpFondoMousePressed
 
     private void jbCloseMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jbCloseMouseEntered
@@ -561,6 +633,12 @@ public class ViewDashboard extends javax.swing.JFrame {
 
     private void jpGProductosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jpGProductosMouseClicked
         this.jlBanner.setText("Gestión de Productos");
+        this.jpSearch.setVisible(true);
+        this.jspInsumos.setVisible(true);
+        this.jtInsumos.setVisible(true);
+        this.jpBotonCrear.setVisible(true);
+        
+        
     }//GEN-LAST:event_jpGProductosMouseClicked
 
     private void jpGProveedoresMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jpGProveedoresMouseClicked
@@ -591,10 +669,9 @@ public class ViewDashboard extends javax.swing.JFrame {
     private javax.swing.JLabel iconProveedores;
     private javax.swing.JLabel iconReportes;
     private javax.swing.JLabel iconUsuarios;
-    private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
+    public javax.swing.JButton jbAñadirInsumo;
     public javax.swing.JButton jbClose;
-    private javax.swing.JLabel jlBanner;
+    public javax.swing.JLabel jlBanner;
     private javax.swing.JLabel jlEncabezado;
     private javax.swing.JLabel jlGClientes;
     private javax.swing.JLabel jlGFacturas;
@@ -602,15 +679,23 @@ public class ViewDashboard extends javax.swing.JFrame {
     private javax.swing.JLabel jlGProveedores;
     private javax.swing.JLabel jlGReportes;
     private javax.swing.JLabel jlGUsuarios;
+    private javax.swing.JLabel jlIconSearch;
     private javax.swing.JPanel jpBanner;
+    private javax.swing.JPanel jpBotonCrear;
     private javax.swing.JPanel jpEncabezado;
     private javax.swing.JPanel jpFondo;
     private javax.swing.JPanel jpGClientes;
     private javax.swing.JPanel jpGFacturas;
-    private javax.swing.JPanel jpGProductos;
+    public javax.swing.JPanel jpGProductos;
     private javax.swing.JPanel jpGProveedores;
     private javax.swing.JPanel jpGReportes;
     private javax.swing.JPanel jpGUsuarios;
+    private javax.swing.JPanel jpInsumos;
     private javax.swing.JPanel jpMenu;
+    public javax.swing.JPanel jpSearch;
+    private javax.swing.JPanel jpTextoBanner;
+    public javax.swing.JScrollPane jspInsumos;
+    public javax.swing.JTable jtInsumos;
+    private javax.swing.JTextField jtfSearch;
     // End of variables declaration//GEN-END:variables
 }
