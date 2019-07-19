@@ -4,8 +4,11 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+
 import javax.swing.table.DefaultTableModel;
 import model.Conexion;
+import model.Insumo;
 import view.ViewCrearInsumo;
 import view.PanelInsumos;
 import view.ViewDashboard;
@@ -20,6 +23,7 @@ public class ControladorPanelInsumos implements ActionListener{
     private Conexion conexion;
     private PanelInsumos panelInsumos;
     private ViewCrearInsumo crearInsumo;
+    private ArrayList<Insumo> insumos;
     
     public ControladorPanelInsumos(PanelInsumos panelInsumos,Conexion conexion)
     {
@@ -46,7 +50,7 @@ public class ControladorPanelInsumos implements ActionListener{
             while(rs.next())
             {
                 anyadirATablaInsumos(rs.getString("codinsumo"), rs.getString("descripcion"), rs.getString("cantidad"), rs.getString("costo")
-                                        ,"No disponible",rs.getString("estado"));
+                                        ,rs.getString("estado"),rs.getString("id"));
             }
         }catch(SQLException | NullPointerException error)
         {
@@ -58,15 +62,13 @@ public class ControladorPanelInsumos implements ActionListener{
     
     
     //--------------------------------------------------------------------------
-    public void anyadirATablaInsumos(String codProducto, String descripcion, String costoGramo, String cantGramos, 
-                                         String stockMínimo, String estado)
+    public void anyadirATablaInsumos(String codInsumo, String descripcion,String cantidadInicialEnGramos,String costoAlGramo,String estado, String idInsumo)
     {
-        Object []object = new Object[6];
-        object[0] = codProducto;
-        object[1] = descripcion;
-        object[2] = costoGramo;
-        object[3] = cantGramos; 
-        object[4] = stockMínimo;
+        Insumo insumo = new Insumo(idInsumo);
+        insumo.setDescripcion(descripcion);
+        insumo.setCantidadInicialEnGramos(cantidadInicialEnGramos);
+        insumo.codInsumo = codInsumo; 
+        object[5] = estado;
         
         if(estado.equals("t"))
         {object[5] = "Activo";}
