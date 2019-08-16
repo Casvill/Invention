@@ -1,0 +1,143 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en" ng-app="base_app">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title>Invention</title>
+
+  <link rel="stylesheet" href="{% static 'vendor/fontawesome-free/css/all.css' %}">
+  <link rel="stylesheet" href="{% static 'vendor/bootstrap/css/bootstrap.min.css' %}">
+  <link rel="stylesheet" href="{% static 'vendor/datatable/datatables.min.css' %}">
+  <link rel="stylesheet" href="{% static 'css/custom_styles.css' %}">
+
+  <!-- Custom styles for this template -->
+  <link href="{% static 'css/simple-sidebar.css' %}" rel="stylesheet">
+  <link href="{% static 'css/colors.css' %}" rel="stylesheet">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.8/angular.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.8/angular-cookies.js"></script>
+  <script src="{% static 'vendor/ng-alertify/ng-alertify.js' %}"></script>
+  <link href="{% static 'vendor/ng-alertify/ng-alertify.css' %}" rel="stylesheet">
+  <script src="{% static 'js/base.js' %}"></script>
+  <script src="{% static 'vendor/jquery/jquery.min.js' %}"></script>
+  <script src="{% static 'vendor/bootstrap/js/bootstrap.min.js' %}"></script>
+  <script src="{% static 'vendor/datatable/datatables.min.js' %}"></script>
+
+</head>
+
+<body>
+
+
+
+  <div id="wrapper" ng-controller="OrdenGastoController">
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-elegant-black">
+      <div id="brand" class="d-flex flex-row">
+        <div class="p-6">
+            <a class="text-light text-wrap text-decoration-none" href="{% url 'app_base:index' %}">Invention</a>
+        </div>
+        <div class="p-6 align-center">
+            <span id="menu-toggle" class="ml-2 navbar-toggler-icon"></span>
+        </div>
+        
+      </div>
+
+      <button class="navbar-toggler fas fa-chevron-down" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"> </button>
+
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
+          <li class="nav-item">
+            <a class="nav-link sign-out-alt" href="{% url 'app_base:logout' %}">Salir</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+
+    <div class="d-flex">
+
+      <div class="bg-dark" id="sidebar-wrapper">
+        <div class="mt-3">
+          <img src="{% static 'imagenes/default_profile.png' %}" alt="Not Found"
+            class="w-50 ml-5 mr-1 rounded-circle" />
+            <span class="text-light w-50 ml-5 mr-1" >{{ request.user.first_name }}</span>
+        </div>
+        <br>
+        <div class="list-group list-group-flush">
+            <a class="list-group-item list-group-item-action bg-dark text-white" href="#administracion_menu" data-toggle="collapse" class="dropdown-toggle">Administración <span class="float-right"><i id="administracion_icon" class="fas fa-chevron-down"></i></span></a>
+            <ul class="collapse list-unstyled" id="administracion_menu">
+              <li>
+                <a class="list-group-item list-group-item-action bg-dark text-white pl-4" href="{% url 'usuario:index' %}">Usuarios</a>
+              </li>
+            </ul>
+        </div>
+        <div class="list-group list-group-flush">
+            <a class="list-group-item list-group-item-action bg-dark text-white" href="#gestion_productos_menu" data-toggle="collapse" class="dropdown-toggle">Gestión de Productos <span class="float-right"><i id="gestion_productos_icon" class="fas fa-chevron-down"></i></span></a>
+            <ul class="collapse list-unstyled" id="gestion_productos_menu">
+              <li>
+                <a class="list-group-item list-group-item-action bg-dark text-white pl-4" href="{% url 'productos:index' %}">Productos Elaborados</a>
+              </li>
+              <li>
+                <a class="list-group-item list-group-item-action bg-dark text-white pl-4" href="{% url 'insumos:index' %}">Insumos</a>
+              </li>
+            </ul>
+        </div>
+        <div class="list-group list-group-flush">
+            <a class="list-group-item list-group-item-action bg-dark text-white" href="#gestion_clientes_menu" data-toggle="collapse" class="dropdown-toggle">Gestión de Clientes<span class="float-right"><i id="gestion_clientes_icon" class="fas fa-chevron-down"></i></span></a>
+            <ul class="collapse list-unstyled" id="gestion_clientes_menu">
+              <li>
+                <a class="list-group-item list-group-item-action bg-dark text-white pl-4" href="{% url 'clientes:index' %}">Consultar</a>
+              </li>
+            </ul>
+        </div>
+        <!-- <div class="list-group list-group-flush">
+            <a class="list-group-item list-group-item-action bg-dark text-white" href="#gestion_reportes_menu" data-toggle="collapse" class="dropdown-toggle">Gestión de Reportes<span class="float-right"><i id="gestion_reportes_icon" class="fas fa-chevron-down"></i></span></a>
+            <ul class="collapse list-unstyled" id="gestion_reportes_menu">
+              <li>
+                <a class="list-group-item list-group-item-action bg-dark text-white pl-4" href="{% url 'usuario:index' %}">Consultar</a>
+              </li>
+            </ul>
+        </div> -->
+        <!-- <div class="list-group list-group-flush">
+            <a class="list-group-item list-group-item-action bg-dark text-white" href="#gestion_facturas_menu" data-toggle="collapse" class="dropdown-toggle">Gestión de Facturas<span class="float-right"><i id="gestion_facturas_icon" class="fas fa-chevron-down"></i></span></a>
+            <ul class="collapse list-unstyled" id="gestion_facturas_menu">
+              <li>
+                <a class="list-group-item list-group-item-action bg-dark text-white pl-4" href="{% url 'usuario:index' %}">Consultar</a>
+              </li>
+            </ul>
+        </div> -->
+        <div class="list-group list-group-flush">
+            <a class="list-group-item list-group-item-action bg-dark text-white" href="#gestion_proveedores_menu" data-toggle="collapse" class="dropdown-toggle">Gestión de Proveedores<span class="float-right"><i id="gestion_proveedores_icon" class="fas fa-chevron-down"></i></span></a>
+            <ul class="collapse list-unstyled" id="gestion_proveedores_menu">
+              <li>
+                <a class="list-group-item list-group-item-action bg-dark text-white pl-4" href="{% url 'proveedores:index' %}">Consultar</a>
+              </li>
+            </ul>
+        </div>
+      </div>
+
+      <div class="container-fluid py-3">
+        {% block content %}
+        {% endblock %}
+      </div>
+
+    </div>
+
+  </div>
+
+  <!-- Menu Toggle Script -->
+  <script>
+    $("#menu-toggle").click(function (e) {
+      e.preventDefault();
+      $("#wrapper").toggleClass("toggled");
+    });
+  </script>
+
+</body>
+
+</html>

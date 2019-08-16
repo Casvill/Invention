@@ -1,0 +1,11 @@
+.bg-elegant-black {
+    background-color:#201E1C;
+}
+
+.bg-sidebar {
+    background-color:#343434;
+}
+
+.bg-sidebar-action:hover {
+    background-color:#4D4D4D !important;
+}

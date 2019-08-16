@@ -1,0 +1,100 @@
+{% extends 'app_base/base.html' %}
+{% load base_tags %}
+{% block content %}
+<div class="text-right">
+    <span class="text-muted">Administración</span> > {{ app }}
+</div>
+<div class="mb-4">
+    <h2 class="font-weight-normal">{{ app }}</h2>
+    <small class="font-weight-lighter text-muted">Todos los registros del sistema</small>
+</div>
+<div class="card">
+    <div class="card-header bg-white">
+        <a class="btn bg-sidebar text-white" href="{% url creation_url %}">Crear {{ class }}</a>
+    </div>
+    <div class="card-body">
+        <div class="table-responsive">
+            <table id="data_table" class="table table-striped table-borderless" style="width:100%">
+                <thead class="no-bordered">
+                    <th>
+                        {{ str_object|default:'Nombre' }}
+                    </th>
+                    {% for field in fields %}
+                    <th>
+                        {{ field.header }}
+                    </th>
+                    {% endfor %}
+                    <th>
+                        Acciones
+                    </th>
+                </thead>
+                <tbody>
+                    {% for object in object_list %}
+                    <tr>
+                        <td>
+                            <a class="text-dark" href="{{ object.get_detail_url }}">{{ object }}</a>
+                        </td>
+                        {% for field in fields %}
+                            <td>
+                                {{ object|get_field:field.name }}
+                            </td>
+                        {% endfor %}
+                        <td>
+                            <a class="btn btn-sm btn-secondary mr-1" href="{{ object.get_edit_url }}"><i
+                                    class="far fa-edit"></i> Editar</a>
+                            <button class="btn btn-sm bg-sidebar text-white" data-toggle="modal"
+                                data-target="#delete_modal_{{ object.id }}"><i class="fas fa-trash-alt"></i>
+                                Eliminar</button>
+                            <div class="modal fade" id="delete_modal_{{ object.id }}" tabindex="-1">
+                                <div class="modal-dialog" role="document">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title" id="exampleModalLabel">Eliminar</h5>
+                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                <span aria-hidden="true">&times;</span>
+                                            </button>
+                                        </div>
+                                        <div class="modal-body">
+                                            Esta seguro de eliminar el registro "{{ object }}"
+                                        </div>
+                                        <div class="modal-footer">
+                                            <form action="{{ object.get_delete_url }}" meod="POST">
+                                                {% csrf_token %}
+                                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                                                <button type="submit" class="btn btn-danger">Aceptar</button>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(document).ready(function () {
+        $('#data_table').DataTable({
+            "language": {
+                "lengthMenu": "Mostrando _MENU_ Registros Por Pagina",
+                "zeroRecords": "No se ha encontrado informacion",
+                "info": "Mostrando Pagina _PAGE_ De _PAGES_",
+                "infoEmpty": "No Hay Registros Disponibles",
+                "infoFiltered": "(Filtrado De _MAX_ Registros Totales)",
+                "paginate": {
+                    "first": "Primero",
+                    "last": "Ultimo",
+                    "next": "Siguiente",
+                    "previous": "Anterior"
+                },
+                "search": "Buscar:"
+            }
+        });
+    })
+
+</script>
+{% endblock %}

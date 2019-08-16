@@ -1,0 +1,34 @@
+{% extends 'app_base/base.html' %}
+{% load crispy_forms_tags %}
+{% load base_tags %}
+{% block content %}
+<div class="text-right">
+    <span class="text-muted">Administración > <a class="text-muted" href="{% url index_url %}">{{ app }}</a></span>
+    > Detalle
+</div>
+<div class="mb-4">
+    <h2 class="font-weight-normal">{{ class }} <small class="font-weight-lighter text-muted"
+            style="font-size: initial">{{ object }}</small></h2>
+</div>
+<hr>
+<div class="row">
+    <div class="col-6">
+        <div class="card">
+            <div class="card-header">
+                Datos Basicos
+            </div>
+            <div class="card-body">
+                <div class="row">
+                    {% for field in fields %}
+                    <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 mt-3">
+                        <h6>{{ field.header }}</h6>
+                        {{ object|get_field:field.name }}
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

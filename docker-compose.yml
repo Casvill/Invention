@@ -1,0 +1,12 @@
+version: '3'
+
+services:
+  invention:
+    build: .
+    image: jepabon922/invention:1
+    container_name: invention
+    volumes:
+      - .:/Invention
+    command: "/bin/bash -c 'cd /Invention/src/ && python3 manage.py runserver 0:8000'"
+    ports:
+      - "8000:8000"
