@@ -13,7 +13,7 @@ git clone https://github.com/Casvill/Invention.git
 ## Cambiar rama
 ```
 cd Invention
-git checkout django_version
+git checkout version_django
 ```
 
 ## Ejecutar contenedor
