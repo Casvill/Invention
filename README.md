@@ -29,7 +29,8 @@ La primera vez se demora más de lo usual
 
 ### Información adicional del sistema
 
+
 Framework: Django
-Usuario: test
-Contraseña: Demo1234
-Base de datos: Postgres
+<br/> Usuario: test
+<br/> Contraseña: Demo1234
+<br/> Base de datos: Postgres
