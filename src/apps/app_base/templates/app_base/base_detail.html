@@ -22,7 +22,7 @@
                     {% for field in fields %}
                     <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 mt-3">
                         <h6>{{ field.header }}</h6>
-                        {{ object|get_field:field.name }}
+                        {{ object|get_field:field.name|default:'' }}
                     </div>
                     {% endfor %}
                 </div>

@@ -9,7 +9,7 @@ from apps.app_base.views import ListBase, CreateViewBase, UpdateViewBase, Delete
 class ProveedorIndexView(ListBase):
     model = Proveedor
 
-    field_values = ['owner']
+    field_values = ['owner', 'nombre']
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
@@ -33,3 +33,4 @@ class ProveedorEliminacionView(DeleteBase):
 
 class ProveedorDetalleView(DetailBase):
     model = Proveedor
+    field_values = ['owner', 'nombre']

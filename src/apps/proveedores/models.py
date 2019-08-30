@@ -6,6 +6,7 @@ class Proveedor(Base):
     TIPO_DOCUMENTO_LIST = (
         ('CC', 'CC'),
         ('TI', 'TI'),
+        ('NIT', 'NIT'),
         ('PASAPORTE', 'PASAPORTE'),
     )
 

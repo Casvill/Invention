@@ -36,7 +36,7 @@
                         </td>
                         {% for field in fields %}
                             <td>
-                                {{ object|get_field:field.name }}
+                                {{ object|get_field:field.name|default:'' }}
                             </td>
                         {% endfor %}
                         <td>

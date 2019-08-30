@@ -9,7 +9,7 @@ from apps.app_base.views import ListBase, CreateViewBase, UpdateViewBase, Delete
 class InsumoIndexView(ListBase):
     model = Insumo
 
-    field_values = ['owner']
+    field_values = ['owner', 'codigo']
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
@@ -33,3 +33,4 @@ class InsumoEliminacionView(DeleteBase):
 
 class InsumoDetalleView(DetailBase):
     model = Insumo
+    field_values = ['owner', 'codigo', 'descripcion']

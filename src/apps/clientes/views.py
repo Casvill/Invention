@@ -33,3 +33,4 @@ class ClienteEliminacionView(DeleteBase):
 
 class ClienteDetalleView(DetailBase):
     model = Cliente
+    field_values = ['owner', 'nombres']

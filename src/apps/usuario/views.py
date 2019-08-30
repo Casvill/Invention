@@ -9,6 +9,7 @@ from django.contrib.auth.hashers import make_password
 
 class UsuarioIndexView(ListBase):
     model = Usuario
+    field_values = ['first_name']
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
