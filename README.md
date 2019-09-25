@@ -31,18 +31,18 @@ Esperamos y luego abrimos la url
 ### Para conectar la base de datos con postgresSQL
 
 "SECRET_KEY": "ac46^mkhg3=jf!x4txu$^cg812w+z^ct7vcuso8btlc@fyal73"<br>
-"DATABASES":
-"default": 
-"ENGINE": "django.db.backends.postgresql_psycopg2"
-"NAME": "bmuortco"
-"USER": "bmuortco"
-"PASSWORD": "8roxusbFnVarGYswAZkE05rMVoF51rsz"
-"HOST": "raja.db.elephantsql.com"
-"PORT": 5432
+"DATABASES":<br>
+"default": <br>
+"ENGINE": "django.db.backends.postgresql_psycopg2"<br>
+"NAME": "bmuortco"<br>
+"USER": "bmuortco"<br>
+"PASSWORD": "8roxusbFnVarGYswAZkE05rMVoF51rsz"<br>
+"HOST": "raja.db.elephantsql.com"<br>
+"PORT": 5432<br>
 
 ### Información adicional del sistema
 
-Framework: Django
-Usuario: test
-Contraseña: Demo1234
-Base de datos: Postgres
+Framework: Django<br>
+Usuario: test<br>
+Contraseña: Demo1234<br>
+Base de datos: Postgres<br>
