@@ -1,13 +1,17 @@
 ## Pasos para la instalación de la aplicación
 
 Primero debemos instalar docker y docker compose. [Docker Install](https://docs.docker.com/install/)
+Debemos registrarnos en la pagina principal y descargar el instalador, por lo general al descargar docker desde el instalador, ahi tambien viene incluido docker compose. 
+
+Tambien debemos tener activada la virtualización en nuestro PC.
+
+Si tenemos windows 10 podemos ver en el administrador de tareas - rendimiento - cpu y vemos que donde dice virutalización diga "Habilitado". 
 
 Para verificar que ya tenemos Docker podemos poner docker --version
 Y para verificar docker compose podemos poner docker-compose
 
-Cuando ya hayamos descargado Docker ahora debemos clonar el proyecto
-de GitHub recomendamos usar la consola que nos brinda Git(se debe descargar)
-debemos poner en la consola el comando:
+Cuando ya tengamos instalado Docker y Docker compose, ahora debemos clonar el proyecto
+de GitHub en el cmd ponemos:
 ```
 git clone https://github.com/Casvill/Invention.git
 ```
@@ -24,6 +28,20 @@ La primera vez se demora más de lo usual
 Esperamos y luego abrimos la url
 [http://localhost:8000](http://localhost:8000)
 
+### Para conectar la base de datos con postgresSQL
+{
+    "SECRET_KEY": "ac46^mkhg3=jf!x4txu$^cg812w+z^ct7vcuso8btlc@fyal73",
+    "DATABASES": {
+        "default": {
+            "ENGINE": "django.db.backends.postgresql_psycopg2",
+            "NAME": "bmuortco",
+            "USER": "bmuortco",
+            "PASSWORD": "8roxusbFnVarGYswAZkE05rMVoF51rsz",
+            "HOST": "raja.db.elephantsql.com",
+            "PORT": 5432
+        }
+    }
+}
 
 ### Información adicional del sistema
 
