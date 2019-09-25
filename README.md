@@ -29,19 +29,15 @@ Esperamos y luego abrimos la url
 [http://localhost:8000](http://localhost:8000)
 
 ### Para conectar la base de datos con postgresSQL
-{
-    "SECRET_KEY": "ac46^mkhg3=jf!x4txu$^cg812w+z^ct7vcuso8btlc@fyal73",
-    "DATABASES": {
-        "default": {
-            "ENGINE": "django.db.backends.postgresql_psycopg2",
-            "NAME": "bmuortco",
-            "USER": "bmuortco",
-            "PASSWORD": "8roxusbFnVarGYswAZkE05rMVoF51rsz",
-            "HOST": "raja.db.elephantsql.com",
-            "PORT": 5432
-        }
-    }
-}
+"SECRET_KEY": "ac46^mkhg3=jf!x4txu$^cg812w+z^ct7vcuso8btlc@fyal73"
+"DATABASES":
+"default": 
+"ENGINE": "django.db.backends.postgresql_psycopg2"
+"NAME": "bmuortco"
+"USER": "bmuortco"
+"PASSWORD": "8roxusbFnVarGYswAZkE05rMVoF51rsz"
+"HOST": "raja.db.elephantsql.com"
+"PORT": 5432
 
 ### Información adicional del sistema
 
