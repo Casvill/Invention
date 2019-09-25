@@ -1,31 +1,31 @@
-# Invention
-Inventory Management System for a Pizza Shop
+## Pasos para la instalación de la aplicación
 
-## Requerimientos
-
-Instalar docker y docker compose de acuerdo al sistema operativo.
+Primero debemos instalar docker y docker compose de acuerdo a nuestro sistema operativo.
 [Docker Install](https://docs.docker.com/install/)
 
-## Clonar
+Cuando ya hayamos descargado Docker ahora debemos clonar el proyecto
+de GitHub, debemos poner en la consola el comando:
 ```
 git clone https://github.com/Casvill/Invention.git
 ```
-## Cambiar rama
+Ahora debemos cambiar de rama usando los siguientes comandos:
 ```
 cd Invention
 git checkout version_django
 ```
-
-## Ejecutar contenedor
-
+Ahora ejecutamos el contenedor.
 La primera vez se demora más de lo usual
 
 ```docker-compose up -d```
 
-## Abrir url
+Recomendamos usar Visual Studio Code el cual nos permite trabajar mejor mediante su consola.
 
+Para ejecutar la aplicación debemos usar el comando:
+```
+Phthon manage.py runserver
+```
+Esperamos y luego abrimos la url
 [http://localhost:8000](http://localhost:8000)
-
 
 ### Información adicional del sistema
 
