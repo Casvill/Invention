@@ -3,6 +3,7 @@
 Primero debemos instalar docker [Docker Install](https://docs.docker.com/install/)
 y docker compose de acuerdo a nuestro sistema operativo [Docker compose Install]
 (https://www.digitalocean.com/community/tutorials/how-to-install-docker-compose-on-ubuntu-16-04)
+
 Cuando ya hayamos descargado Docker ahora debemos clonar el proyecto
 de GitHub recomendamos usar la consola que nos brinda Git(se debe descargar)
 debemos poner en la consola el comando:
