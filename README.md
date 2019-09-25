@@ -19,14 +19,9 @@ La primera vez se demora más de lo usual
 
 ```docker-compose up -d```
 
-Recomendamos usar Visual Studio Code el cual nos permite trabajar mejor la aplicación mediante su consola.
-
-Para ejecutar la aplicación debemos usar el comando:
-```
-Phthon manage.py runserver
-```
 Esperamos y luego abrimos la url
 [http://localhost:8000](http://localhost:8000)
+
 
 ### Información adicional del sistema
 
